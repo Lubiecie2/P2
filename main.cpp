@@ -21,4 +21,6 @@ int main()
     drzewo.BST_preorder_wyswietl();
     std::cout << std::endl;
     
+    drzewo.BST_inorder_wyswietl();
+    std::cout << std::endl;
 }
