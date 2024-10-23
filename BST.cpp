@@ -76,3 +76,23 @@ void BST::BST_inorder_wyswietl() {
 
     std::cout << std::endl;
 }
+
+void BST::BST_postorder(Node* node) {
+
+    if (node == nullptr) {
+        return;
+    }
+
+    BST_postorder(node->left);
+
+    BST_postorder(node->right);
+
+    std::cout << node->data << " ";
+}
+
+void BST::BST_postorder_wyswietl() {
+
+    BST_postorder(root);
+
+    std::cout << std::endl;
+}

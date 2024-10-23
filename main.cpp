@@ -19,8 +19,8 @@ int main()
     } while (wybor == 't' || wybor == 'T');
 
     drzewo.BST_preorder_wyswietl();
-    std::cout << std::endl;
     
     drzewo.BST_inorder_wyswietl();
-    std::cout << std::endl;
+
+    drzewo.BST_postorder_wyswietl();
 }
