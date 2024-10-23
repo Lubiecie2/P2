@@ -14,7 +14,8 @@ int main()
         std::cout << "2. Wyswietl drzewo metoda preorder: " << std::endl;
         std::cout << "3. Wyswietl drzewo metoda inorder: " << std::endl;
         std::cout << "4. Wyswietl drzewo metoda postorder: " << std::endl;
-        std::cout << "5. Jesli chcesz wyjsc z programu" << std::endl;
+        std::cout << "5. Usun cale drzewo: " << std::endl;
+        std::cout << "6. Jesli chcesz wyjsc z programu" << std::endl;
 
         std::cin >> opcja;
 
@@ -45,31 +46,13 @@ int main()
             drzewo.BST_postorder_wyswietl();
             std::cout << std::endl;
             break;
+        case '5':
+            drzewo.BST_usun_cale_drzewo_wyswietl();
+            std::cout << "cale drzewo zostalo usuniete" << std::endl;
+            break;
         }
-    }while (opcja != '5');
+    }while (opcja != '6');
 
     return 0;
 }
 
-/*
-BST drzewo;
-int v;
-char wybor;
-
-
-do {
-    std::cout << "Podaj wartosc nowego elementu drzewa BST: ";
-    std::cin >> v;
-
-    drzewo.BST_dodanie_elementu(v);
-
-    std::cout << "Czy doodac nastepny element ? (t/n): ";
-    std::cin >> wybor;
-} while (wybor == 't' || wybor == 'T');
-
-drzewo.BST_preorder_wyswietl();
-
-drzewo.BST_inorder_wyswietl();
-
-drzewo.BST_postorder_wyswietl();
-*/

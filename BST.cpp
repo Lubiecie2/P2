@@ -96,3 +96,25 @@ void BST::BST_postorder_wyswietl() {
 
     std::cout << std::endl;
 }
+
+void BST::BST_usun_cale_drzewo(Node* node) {
+  
+    if (node == nullptr) {
+        return;
+    }
+
+    BST_usun_cale_drzewo(node->left);
+
+    BST_usun_cale_drzewo(node->right);
+
+    std::cout << node->data << std::endl;
+    
+    delete node;
+}
+
+void BST::BST_usun_cale_drzewo_wyswietl() {
+    
+    BST_usun_cale_drzewo(root);
+    
+    root = nullptr;
+}

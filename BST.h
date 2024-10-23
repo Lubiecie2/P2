@@ -24,5 +24,6 @@ public:
     void BST_inorder_wyswietl();
     void BST_postorder(Node* node);
     void BST_postorder_wyswietl();
-
+    void BST_usun_cale_drzewo(Node* node);
+    void BST_usun_cale_drzewo_wyswietl();
 };
