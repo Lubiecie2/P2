@@ -18,5 +18,6 @@ public:
     ~BST();
 
     void BST_dodanie_elementu(int v);
-
+    void BST_preorder(Node* node);
+    void BST_preorder_wyswietl();
 };

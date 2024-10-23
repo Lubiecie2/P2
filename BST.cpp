@@ -1,5 +1,5 @@
 #include "BST.h"
-
+#include <iostream>
 
 BST::BST() : root(nullptr) {}
 
@@ -20,7 +20,7 @@ void BST::BST_dodanie_elementu(int v) {
                                         //      Lewe albo Prawe
         rodzic = obecny_element; 
         if (v < obecny_element->data) {   // <--- Pêtla if przechodzi do lewej strony albo prawej w zale¿noœci od wartoœci elementu 
-            obecny_element = obecny_element->left; // PrzejdŸ do lewego poddrzewa
+            obecny_element = obecny_element->left; 
         }
         else {
             obecny_element = obecny_element->right;
@@ -34,3 +34,25 @@ void BST::BST_dodanie_elementu(int v) {
         rodzic->right = newNode; 
     }
 }
+
+void BST::BST_preorder(Node* node) {
+   
+    if (node == nullptr) {
+        return;
+    }
+
+    std::cout << node->data << " "; // <--- Przetwarzany jest korzeñ
+   
+    BST_preorder(node->left);     // <--- Przetwarzane jest lewe poddrzewie
+    
+    BST_preorder(node->right);    // <--- Przetwarzane jest prawe prawe poddrzewie
+}
+
+
+void BST::BST_preorder_wyswietl() {
+   
+    BST_preorder(root);  
+    
+    std::cout << std::endl;
+}
+
