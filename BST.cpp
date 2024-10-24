@@ -9,7 +9,7 @@ void BST::BST_dodanie_elementu(int v) {
     Node* newNode = new Node(v);
 
     if (root == nullptr) {
-        root = newNode;         // <--- Pêtla sprawdza czy drzewo jest puste jeœli jest to ustawia nowy element jako korzeñ
+        root = newNode;         // <--- Pêtla sprawdza czy drzewo jest puste jeœli jest to ustawia nowy element jako korzeñ...
         return;
     }
 
