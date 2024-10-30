@@ -18,6 +18,8 @@ public:
     ~BST();
 
     void BST_dodanie_elementu(int v);
+    void BST_usuwanie_elementu(int v);
+    Node* usun_element(Node* node, int v);
     void BST_preorder(Node* node);
     void BST_preorder_wyswietl();
     void BST_inorder(Node* node);
