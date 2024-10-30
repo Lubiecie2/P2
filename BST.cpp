@@ -71,26 +71,26 @@ void BST::BST_usuwanie_elementu(int v) {
 }
 
 Node* BST::BST_szukaj_drogi(Node* node, int v) {
-    if (node == nullptr) {
+    if (node == nullptr) {        // <--- Zwraca nullptr, jesli wezel jest pusty
         return nullptr;
     }
-    std::cout << node->data;
+    std::cout << node->data;        // <--- Wypisuje biezacy wezel, przez ktory przechodzi
     if (v < node->data) {
         std::cout << " -> ";
-        return BST_szukaj_drogi(node->left, v);
+        return BST_szukaj_drogi(node->left, v);        // <--- Przeszukuje lewe poddrzewo rekurencyjnie
     }
     else if (v > node->data) {
         std::cout << " -> ";
-        return BST_szukaj_drogi(node->right, v);
+        return BST_szukaj_drogi(node->right, v);        // <--- Przeszukuje prawe poddrzewo rekurencyjnie
     }
     else {
-        return node;
+        return node;        // <--- Gdy znajdzie element, zwraca biezacy wezel
     }
 }
 
 void BST::BST_szukaj(int v) {
     std::cout << "Droga do elementu " << v << ": ";
-    if (BST_szukaj_drogi(root, v) == nullptr) {
+    if (BST_szukaj_drogi(root, v) == nullptr) {        // <--- Sprawdza, czy istnieje poszukiwany element, jesli nie - wypisuje komunikat i zwraca nullptr
         std::cout << "Brak elementu." << std::endl;
     }
     else {
