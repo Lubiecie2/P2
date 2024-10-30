@@ -35,19 +35,15 @@ void BST::BST_dodanie_elementu(int v) {
     }
 }
 
-void BST::BST_usuwanie_elementu(int v) {
-    root = usun_element(root, v);
-}
-
-Node* BST::usun_element(Node* node, int v) {
-    if (root == nullptr) {
-        return root;        // <--- Funkcja sprawdza czy istnieje element w drzewie, jeœli nie - zwraca nullptr
+Node* BST::BST_usun_element(Node* node, int v) {
+    if (node == nullptr) {
+        return nullptr;        // <--- Funkcja sprawdza czy istnieje element w drzewie, jeœli nie - zwraca nullptr
     }
     if (v < node->data) {        // <--- Jesli wartosc v jest mniejsza od wartosci biezacego drzewa, przechodzi do lewego poddrzewa
-        node->left = usun_element(node->left, v);
+        node->left = BST_usun_element(node->left, v);
     }
     else if (v > node->data) {        // <--- Jesli wartosc v jest wieksza od wartosci biezacego drzewa, przechodzi do prawego poddrzewa
-        node->right = usun_element(node->right, v);
+        node->right = BST_usun_element(node->right, v);
     }
     else {        // <--- Jesli wartosc v jest rowna, znaleziono element do usuniecia
         if (node->left == nullptr) {        // <--- Jesli wezel ma tylko prawe poddrzewo lub jest lisciem
@@ -65,9 +61,41 @@ Node* BST::usun_element(Node* node, int v) {
             temporary = temporary->left;        // <--- Przechodzimy w lewo by znalezc najmniejszy element
         }
         node->data = temporary->data;        // <--- Zamiana wartosciami biezacego wezla z najmniejszym prawego poddrzewa
-        node->right = usun_element(node->right, temporary->data);        // <--- Usuniecie tego najmniejszego wezla w prawym poddrzewie, jego wartosc jest juz w biezacym wezle
+        node->right = BST_usun_element(node->right, temporary->data);        // <--- Usuniecie tego najmniejszego wezla w prawym poddrzewie, jego wartosc jest juz w biezacym wezle
     }
     return node;        // <--- Zwraca biezacy wezel
+}
+
+void BST::BST_usuwanie_elementu(int v) {
+    root = BST_usun_element(root, v);
+}
+
+Node* BST::BST_szukaj_drogi(Node* node, int v) {
+    if (node == nullptr) {
+        return nullptr;
+    }
+    std::cout << node->data;
+    if (v < node->data) {
+        std::cout << " -> ";
+        return BST_szukaj_drogi(node->left, v);
+    }
+    else if (v > node->data) {
+        std::cout << " -> ";
+        return BST_szukaj_drogi(node->right, v);
+    }
+    else {
+        return node;
+    }
+}
+
+void BST::BST_szukaj(int v) {
+    std::cout << "Droga do elementu " << v << ": ";
+    if (BST_szukaj_drogi(root, v) == nullptr) {
+        std::cout << "Brak elementu." << std::endl;
+    }
+    else {
+        std::cout << std::endl;
+    }
 }
 
 void BST::BST_preorder(Node* node) {
