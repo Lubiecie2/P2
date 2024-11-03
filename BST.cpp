@@ -108,7 +108,7 @@ void BST::BST_preorder(Node* node) {
    
     BST_preorder(node->left);     // <--- Przetwarzane jest lewe poddrzewie
     
-    BST_preorder(node->right);    // <--- Przetwarzane jest prawe prawe poddrzewie
+    BST_preorder(node->right);    // <--- Przetwarzane jest prawe prawe poddrzewie.
 }
 
 
