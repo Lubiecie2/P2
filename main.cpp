@@ -17,7 +17,8 @@ int main()
         std::cout << "5. Wyswietl drzewo metoda postorder: " << std::endl;
         std::cout << "6. Szukaj drogi do wybranego elementu: " << std::endl;
         std::cout << "7. Usun cale drzewo: " << std::endl;
-        std::cout << "8. Jesli chcesz wyjsc z programu" << std::endl;
+        std::cout << "8. Zapisz do pliku: " << std::endl;
+        std::cout << "9. Jesli chcesz wyjsc z programu" << std::endl;
 
         std::cin >> opcja;
 
@@ -73,8 +74,12 @@ int main()
             drzewo.BST_usun_cale_drzewo_wyswietl();
             std::cout << "cale drzewo zostalo usuniete" << std::endl;
             break;
+        case '8':
+            drzewo.BST_zapisz_do_pliku("plik.txt");
+            std::cout << "Drzewo zapisano do pliku." << std::endl;
+            break;
         }
-    }while (opcja != '8');
+    }while (opcja != '9');
 
     return 0;
 }

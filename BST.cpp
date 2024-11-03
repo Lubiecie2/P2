@@ -181,3 +181,22 @@ void BST::BST_usun_cale_drzewo_wyswietl() {
     
     root = nullptr;
 }
+
+void BST::BST_zapisz_do_pliku(const std::string& nazwa_pliku) {
+    std::ofstream plik(nazwa_pliku);
+    if (!plik) {
+        std::cout << "Nie mo¿na otworzyæ pliku do zapisu." << std::endl;
+        return;
+    }
+    BST_zapisz_inorder_do_pliku(root, plik);
+    plik.close();
+}
+
+void BST::BST_zapisz_inorder_do_pliku(Node* node, std::ofstream& plik) {
+    if (node == nullptr) {
+        return;
+    }
+    BST_zapisz_inorder_do_pliku(node->left, plik);
+    plik << node->data << " ";
+    BST_zapisz_inorder_do_pliku(node->right, plik);
+}
