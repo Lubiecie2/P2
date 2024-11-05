@@ -7,12 +7,13 @@ int main()
 {
     BST drzewo;
     int v;
-    char wybor = 'n'; 
-    int opcja; 
+    char wybor = 'n';
+    int opcja;
 
     Pliki pliki;
 
     do {
+        std::cout << std::endl;
         std::cout << "Wybierz co chcesz zrobic:" << std::endl;
         std::cout << "1. Dodaj nowy element do drzewa BST: " << std::endl;
         std::cout << "2. Usun element drzewa BST: " << std::endl;
@@ -26,7 +27,7 @@ int main()
         std::cout << "10. Jesli chcesz zapisac zawartosc drzewa do pliku binarnego" << std::endl;
         std::cout << "11. Jesli chcesz wczytac zawartosc pliku binarnego do drzewa" << std::endl;
         std::cout << "12. Jesli chcesz wyjsc z programu" << std::endl;
-
+        std::cout << "Opcja: ";
 
         std::cin >> opcja;
 
@@ -44,16 +45,12 @@ int main()
             } while (wybor == 't' || wybor == 'T');
             break;
         case 2:
-            do {
+            
                 std::cout << "Podaj wartosc elementu drzewa BST, ktora chcesz usunac: ";
                 std::cin >> v;
 
                 drzewo.BST_usuwanie_elementu(v);
 
-                std::cout << "Czy usunac nastepny element ? (t/n): ";
-                std::cin >> wybor;
-
-            } while (wybor == 't' || wybor == 'T');
             break;
         case 3:
             drzewo.BST_preorder_wyswietl();
@@ -90,7 +87,6 @@ int main()
             drzewo.BST_zapisz_do_pliku("plik.txt");
             std::cout << "Drzewo zapisano do pliku." << std::endl;
             break;
-        }
 
         case 9:
         {
@@ -108,15 +104,15 @@ int main()
         }
         break;
 
-        case 11: 
+        case 11:
         {
-            std::string binFilename = "drzewo.bin"; 
-            pliki.Pliki_Wczytanie_z_pliku_binarnego(drzewo, binFilename); 
+            std::string binFilename = "drzewo.bin";
+            pliki.Pliki_Wczytanie_z_pliku_binarnego(drzewo, binFilename);
             std::cout << "Wczytano drzewo z pliku binarnego: " << binFilename << std::endl;
         }
         break;
 
-        }
+    }
 
     } while (opcja != 12); 
 
