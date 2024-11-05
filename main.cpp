@@ -7,8 +7,9 @@ int main()
 {
     BST drzewo;
     int v;
-    char wybor;
-    char opcja;
+    char wybor = 'n'; 
+    int opcja; 
+
     Pliki pliki;
 
     do {
@@ -21,23 +22,26 @@ int main()
         std::cout << "6. Szukaj drogi do wybranego elementu: " << std::endl;
         std::cout << "7. Usun cale drzewo: " << std::endl;
         std::cout << "9. Jesli chcesz wczytac wartosci do drzewa z pliku tekstowego" << std::endl;
-        std::cout << "10. Jesli chcesz wyjsc z programu" << std::endl;
+        std::cout << "10. Jesli chcesz zapisac zawartosc drzewa do pliku binarnego" << std::endl;
+        std::cout << "11. Jesli chcesz wczytac zawartosc pliku binarnego do drzewa" << std::endl;
+        std::cout << "12. Jesli chcesz wyjsc z programu" << std::endl;
 
         std::cin >> opcja;
 
         switch (opcja) {
-        case '1':
+        case 1:
             do {
                 std::cout << "Podaj wartosc nowego elementu drzewa BST: ";
                 std::cin >> v;
 
                 drzewo.BST_dodanie_elementu(v);
 
-                std::cout << "Czy doodac nastepny element ? (t/n): ";
+                std::cout << "Czy dodac nastepny element ? (t/n): ";
                 std::cin >> wybor;
+
             } while (wybor == 't' || wybor == 'T');
             break;
-        case '2':
+        case 2:
             do {
                 std::cout << "Podaj wartosc elementu drzewa BST, ktora chcesz usunac: ";
                 std::cin >> v;
@@ -46,23 +50,24 @@ int main()
 
                 std::cout << "Czy usunac nastepny element ? (t/n): ";
                 std::cin >> wybor;
+
             } while (wybor == 't' || wybor == 'T');
             break;
-        case '3':
+        case 3:
             drzewo.BST_preorder_wyswietl();
             std::cout << std::endl;
             break;
 
-        case '4':
+        case 4:
             drzewo.BST_inorder_wyswietl();
             std::cout << std::endl;
             break;
 
-        case '5':
+        case 5:
             drzewo.BST_postorder_wyswietl();
             std::cout << std::endl;
             break;
-        case '6':
+        case 6:
             do {
                 std::cout << "Podaj wartosc elementu drzewa BST, ktora chcesz znalezc: ";
                 std::cin >> v;
@@ -71,20 +76,40 @@ int main()
 
                 std::cout << "Czy chcesz znalezc inny element ? (t/n): ";
                 std::cin >> wybor;
+
             } while (wybor == 't' || wybor == 'T');
             break;
-        case '7':
+        case 7:
             drzewo.BST_usun_cale_drzewo_wyswietl();
-            std::cout << "cale drzewo zostalo usuniete" << std::endl;
+            std::cout << "Cale drzewo zostalo usuniete" << std::endl;
             break;
-        
-        case '9':
-            std::string filename = "Pliki_Wczytanie_z_pliku_tekstowego.txt";  // Nazwa pliku do wczytania
+
+        case 9:
+        {
+            std::string filename = "Pliki_Wczytanie_z_pliku_tekstowego.txt";
             pliki.Pliki_Wczytanie_z_pliku_tekstowego(drzewo, filename, true);
-            break;
         }
-    }while (opcja != '10');
+        break;
+
+        case 10:
+        {
+            std::string binFilename = "drzewo.bin";
+            pliki.Pliki_Zapisywanie_do_pliki_binarnego(drzewo, binFilename);
+            std::cout << "Konczenie programu..." << std::endl;
+        }
+        break;
+
+        case 11: 
+        {
+            std::string binFilename = "drzewo.bin"; 
+            pliki.Pliki_Wczytanie_z_pliku_binarnego(drzewo, binFilename); 
+            std::cout << "Wczytano drzewo z pliku binarnego: " << binFilename << std::endl;
+        }
+        break;
+
+        }
+
+    } while (opcja != 12); 
 
     return 0;
 }
-
