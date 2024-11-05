@@ -9,7 +9,7 @@ void BST::BST_dodanie_elementu(int v) {
     Node* newNode = new Node(v);
 
     if (root == nullptr) {
-        root = newNode;         // <--- Pêtla sprawdza czy drzewo jest puste jeœli jest to ustawia nowy element jako korzeñ.
+        root = newNode;         // <--- Pêtla sprawdza czy drzewo jest puste jeœli jest to ustawia nowy element jako korzeñ..
         return;
     }
 
@@ -37,31 +37,31 @@ void BST::BST_dodanie_elementu(int v) {
 
 Node* BST::BST_usun_element(Node* node, int v) {
     if (node == nullptr) {
-        return nullptr;        // <--- Funkcja sprawdza czy istnieje element w drzewie, jeœli nie - zwraca nullptr
+        return nullptr;           // <--- Funkcja sprawdza czy istnieje element w drzewie, jeœli nie - zwraca nullptr
     }
-    if (v < node->data) {        // <--- Jesli wartosc v jest mniejsza od wartosci biezacego drzewa, przechodzi do lewego poddrzewa
+    if (v < node->data) {         // <--- Jesli wartosc v jest mniejsza od wartosci biezacego drzewa, przechodzi do lewego poddrzewa
         node->left = BST_usun_element(node->left, v);
     }
     else if (v > node->data) {        // <--- Jesli wartosc v jest wieksza od wartosci biezacego drzewa, przechodzi do prawego poddrzewa
         node->right = BST_usun_element(node->right, v);
     }
-    else {        // <--- Jesli wartosc v jest rowna, znaleziono element do usuniecia
-        if (node->left == nullptr) {        // <--- Jesli wezel ma tylko prawe poddrzewo lub jest lisciem
+    else {                            // <--- Jesli wartosc v jest rowna, znaleziono element do usuniecia
+        if (node->left == nullptr) {              // <--- Jesli wezel ma tylko prawe poddrzewo lub jest lisciem
             Node* temporary = node->right;        // <--- Przechowuje wskaznik do prawego dziecka
-            delete node;        // <--- Usuwa biezacy wezel
-            return temporary;        // <--- Zwraca wskaznik lewego dziecka
+            delete node;                          // <--- Usuwa biezacy wezel
+            return temporary;                     // <--- Zwraca wskaznik lewego dziecka
         }
-        if (node->right == nullptr) {// <--- Jesli wezel ma tylko lewe poddrzewo
-            Node* temporary = node->left;        // <--- Przechowuje wskaznik do lewego dziecka
-            delete node;        // <--- Usuwa biezacy wezel
-            return temporary;        // <--- Zwraca wskaznik prawego dziecka
+        if (node->right == nullptr) {             // <--- Jesli wezel ma tylko lewe poddrzewo
+            Node* temporary = node->left;         // <--- Przechowuje wskaznik do lewego dziecka
+            delete node;                   // <--- Usuwa biezacy wezel
+            return temporary;              // <--- Zwraca wskaznik prawego dziecka
         }
-        Node* temporary = node->right;        // <--- Jesli wezel ma dwoje dzieci, szukamy najmniejszy element w prawym poddrzewie
+        Node* temporary = node->right;           // <--- Jesli wezel ma dwoje dzieci, szukamy najmniejszy element w prawym poddrzewie
         while (temporary->left != nullptr) {
-            temporary = temporary->left;        // <--- Przechodzimy w lewo by znalezc najmniejszy element
+            temporary = temporary->left;         // <--- Przechodzimy w lewo by znalezc najmniejszy element
         }
         node->data = temporary->data;        // <--- Zamiana wartosciami biezacego wezla z najmniejszym prawego poddrzewa
-        node->right = BST_usun_element(node->right, temporary->data);        // <--- Usuniecie tego najmniejszego wezla w prawym poddrzewie, jego wartosc jest juz w biezacym wezle
+        node->right = BST_usun_element(node->right, temporary->data);  // <--- Usuniecie tego najmniejszego wezla w prawym poddrzewie, jego wartosc jest juz w biezacym wezle
     }
     return node;        // <--- Zwraca biezacy wezel
 }
@@ -108,7 +108,7 @@ void BST::BST_preorder(Node* node) {
    
     BST_preorder(node->left);     // <--- Przetwarzane jest lewe poddrzewie
     
-    BST_preorder(node->right);    // <--- Przetwarzane jest prawe prawe poddrzewie
+    BST_preorder(node->right);    // <--- Przetwarzane jest prawe prawe poddrzewie.
 }
 
 
