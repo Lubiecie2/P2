@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 
 struct Node {
     int data;
@@ -30,4 +31,6 @@ public:
     void BST_postorder_wyswietl();
     void BST_usun_cale_drzewo(Node* node);
     void BST_usun_cale_drzewo_wyswietl();
+    void BST_zapisz_do_pliku(const std::string& nazwa_pliku);
+    void BST_zapisz_inorder_do_pliku(Node* node, std::ofstream& plik);
 };

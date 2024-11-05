@@ -181,3 +181,22 @@ void BST::BST_usun_cale_drzewo_wyswietl() {
     
     root = nullptr;
 }
+
+void BST::BST_zapisz_do_pliku(const std::string& nazwa_pliku) {
+    std::ofstream plik(nazwa_pliku);
+    if (!plik) {    // <--- Sprawdza, czy plik zostal otwarty
+        std::cout << "Nie mo¿na otworzyæ pliku do zapisu." << std::endl;
+        return;
+    }
+    BST_zapisz_inorder_do_pliku(root, plik);    // <--- Zapis drzewa
+    plik.close();    // <--- Zamyka plik
+}
+
+void BST::BST_zapisz_inorder_do_pliku(Node* node, std::ofstream& plik) {    // <--- Metoda przyjmuje wskaznik do aktulnego wezla od referencje do obiektu pliku
+    if (node == nullptr) {    // <--- Sprawdza, czy biezacy wezel jest pusty, konczy dzialanie metody
+        return;
+    }
+    BST_zapisz_inorder_do_pliku(node->left, plik);    // <--- Zapisuje od lewego dziecka do biezacego wezla
+    plik << node->data << " ";     // <--- Zapisuje do pliku wartosc biezacego wezla
+    BST_zapisz_inorder_do_pliku(node->right, plik);
+}

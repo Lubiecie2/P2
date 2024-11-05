@@ -21,10 +21,12 @@ int main()
         std::cout << "5. Wyswietl drzewo metoda postorder: " << std::endl;
         std::cout << "6. Szukaj drogi do wybranego elementu: " << std::endl;
         std::cout << "7. Usun cale drzewo: " << std::endl;
+        std::cout << "8. Zapisz do pliku: " << std::endl;
         std::cout << "9. Jesli chcesz wczytac wartosci do drzewa z pliku tekstowego" << std::endl;
         std::cout << "10. Jesli chcesz zapisac zawartosc drzewa do pliku binarnego" << std::endl;
         std::cout << "11. Jesli chcesz wczytac zawartosc pliku binarnego do drzewa" << std::endl;
         std::cout << "12. Jesli chcesz wyjsc z programu" << std::endl;
+
 
         std::cin >> opcja;
 
@@ -84,12 +86,19 @@ int main()
             std::cout << "Cale drzewo zostalo usuniete" << std::endl;
             break;
 
+        case 8:
+            drzewo.BST_zapisz_do_pliku("plik.txt");
+            std::cout << "Drzewo zapisano do pliku." << std::endl;
+            break;
+        }
+
         case 9:
         {
             std::string filename = "Pliki_Wczytanie_z_pliku_tekstowego.txt";
             pliki.Pliki_Wczytanie_z_pliku_tekstowego(drzewo, filename, true);
         }
         break;
+
 
         case 10:
         {
