@@ -2,89 +2,89 @@
 #include <fstream>
 
 // @struct Node
-// @brief Struktura reprezentuj¹ca wêze³ w drzewie poszukiwañ binarnych.
+// @brief Struktura reprezentujaca wezel w drzewie poszukiwan binarnych.
 struct Node {
-    int data;      // Zmienna przechowuj¹ca wartoœæ wêz³a.
-    Node* left;    // WskaŸnik na lewego potomka wêz³a.
-    Node* right;   // WskaŸnik na prawego potomka wêz³a.
+    int data;      // Zmienna przechowujaca wartosc wezla.
+    Node* left;    // Wskaznik na lewego potomka wezla.
+    Node* right;   // Wskaznik na prawego potomka wezla.
 
-    // @brief Konstruktor tworz¹cy nowy wêze³.
-    // @param v Wartoœæ ca³kowita do zapisania w wêŸle.
+    // @brief Konstruktor tworzacy nowy wezel.
+    // @param v Wartosc calkowita do zapisania w wezle.
     Node(int v) : data(v), left(nullptr), right(nullptr) {}
 };
 
 // @class BST
-// @brief Klasa reprezentuj¹ca drzewo poszukiwañ binarnych.
+// @brief Klasa reprezentujaca drzewo poszukiwan binarnych.
 class BST {
 
 public:
 
-    Node* root;    // WskaŸnik na korzeñ drzewa.
+    Node* root;    // Wskaznik na korzen drzewa.
 
-    // @brief Konstruktor tworz¹cy nowe drzewo BST.
+    // @brief Konstruktor tworzacy nowe drzewo BST.
     BST();
 
-    // @brief Destruktor drzewa BST, usuwa wszystkie wêz³y.
+    // @brief Destruktor drzewa BST, usuwa wszystkie wezly.
     ~BST();
 
     // @brief Dodaje nowy element do drzewa BST.
-    // @param v Wartoœæ ca³kowita do dodania.
+    // @param v Wartosc calkowita do dodania.
     void BST_dodanie_elementu(int v);
 
-    // @brief Usuwa element o podanej wartoœci z drzewa.
-    // @param v Wartoœæ elementu do usuniêcia.
+    // @brief Usuwa element o podanej wartosci z drzewa.
+    // @param v Wartosc elementu do usuniecia.
     void BST_usuwanie_elementu(int v);
 
-    // @brief Usuwa element z drzewa zaczynaj¹c od danego wêz³a.
-    // @param node WskaŸnik na wêze³, od którego zaczyna siê usuwanie.
-    // @param v Wartoœæ elementu do usuniêcia.
-    // @return WskaŸnik na korzeñ poddrzewa po usuniêciu elementu.
+    // @brief Usuwa element z drzewa zaczynajac od danego wezla.
+    // @param node Wskaznik na wezel, od ktorego zaczyna sie usuwanie.
+    // @param v Wartosc elementu do usuniecia.
+    // @return Wskaznik na korzen poddrzewa po usunieciu elementu.
     Node* BST_usun_element(Node* node, int v);
 
-    // @brief Szuka œcie¿ki do wêz³a o podanej wartoœci.
-    // @param node WskaŸnik na wêze³, od którego zaczyna siê szukanie.
-    // @param v Wartoœæ do znalezienia.
-    // @return WskaŸnik na wêze³ o podanej wartoœci lub nullptr, jeœli nie znaleziono.
+    // @brief Szuka sciezki do wezla o podanej wartosci.
+    // @param node Wskaznik na wezel, od ktorego zaczyna sie szukanie.
+    // @param v Wartosc do znalezienia.
+    // @return Wskaznik na wezel o podanej wartosci lub nullptr, jesli nie znaleziono.
     Node* BST_szukaj_drogi(Node* node, int v);
 
-    // @brief Szuka wêz³a o podanej wartoœci.
-    // @param v Wartoœæ do znalezienia.
+    // @brief Szuka wezla o podanej wartosci.
+    // @param v Wartosc do znalezienia.
     void BST_szukaj(int v);
 
-    // @brief Wykonuje przejœcie preorder zaczynaj¹c od podanego wêz³a.
-    // @param node WskaŸnik na wêze³ pocz¹tkowy.
+    // @brief Wykonuje przejscie preorder zaczynajac od podanego wezla.
+    // @param node Wskaznik na wezel poczatkowy.
     void BST_preorder(Node* node);
 
-    // @brief Wyœwietla elementy drzewa w kolejnoœci preorder.
+    // @brief Wyswietla elementy drzewa w kolejnosci preorder.
     void BST_preorder_wyswietl();
 
-    // @brief Wykonuje przejœcie inorder zaczynaj¹c od podanego wêz³a.
-    // @param node WskaŸnik na wêze³ pocz¹tkowy.
+    // @brief Wykonuje przejscie inorder zaczynajac od podanego wezla.
+    // @param node Wskaznik na wezel poczatkowy.
     void BST_inorder(Node* node);
 
-    // @brief Wyœwietla elementy drzewa w kolejnoœci inorder.
+    // @brief Wyswietla elementy drzewa w kolejnosci inorder.
     void BST_inorder_wyswietl();
 
-    // @brief Wykonuje przejœcie postorder zaczynaj¹c od podanego wêz³a.
-    // @param node WskaŸnik na wêze³ pocz¹tkowy.
+    // @brief Wykonuje przejscie postorder zaczynajac od podanego wezla.
+    // @param node Wskaznik na wezel poczatkowy.
     void BST_postorder(Node* node);
 
-    // @brief Wyœwietla elementy drzewa w kolejnoœci postorder.
+    // @brief Wyswietla elementy drzewa w kolejnosci postorder.
     void BST_postorder_wyswietl();
 
-    // @brief Usuwa ca³e drzewo zaczynaj¹c od podanego wêz³a.
-    // @param node WskaŸnik na korzeñ drzewa lub poddrzewa do usuniêcia.
+    // @brief Usuwa cale drzewo zaczynajac od podanego wezla.
+    // @param node Wskaznik na korzen drzewa lub poddrzewa do usuniecia.
     void BST_usun_cale_drzewo(Node* node);
 
-    // @brief Usuwa ca³e drzewo i zwalnia przydzielon¹ pamiêæ.
+    // @brief Usuwa cale drzewo i zwalnia przydzielona pamiec.
     void BST_usun_cale_drzewo_wyswietl();
 
     // @brief Zapisuje drzewo BST do pliku tekstowego.
-    // @param nazwa_pliku Nazwa pliku, do którego zostanie zapisane drzewo.
+    // @param nazwa_pliku Nazwa pliku, do ktorego zostanie zapisane drzewo.
     void BST_zapisz_do_pliku(const std::string& nazwa_pliku);
 
-    // @brief Zapisuje elementy drzewa w kolejnoœci inorder do pliku.
-    // @param node WskaŸnik na aktualny wêze³ drzewa.
-    // @param plik Referencja do obiektu std::ofstream, do którego zostan¹ zapisane elementy.
+    // @brief Zapisuje elementy drzewa w kolejnosci inorder do pliku.
+    // @param node Wskaznik na aktualny wezel drzewa.
+    // @param plik Referencja do obiektu std::ofstream, do ktorego zostana zapisane elementy.
     void BST_zapisz_inorder_do_pliku(Node* node, std::ofstream& plik);
 };
