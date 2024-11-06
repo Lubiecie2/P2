@@ -100,7 +100,7 @@ void BST::BST_szukaj(int v) {
 
 void BST::BST_preorder(Node* node) {
    
-    if (node == nullptr) {
+    if (node == nullptr) {  // <--- Pêtla sprawdza czy node jest nullptr jeœli tak to funkcja koñczy dzia³anie dla tego wywo³ywania rekurencyjnego 
         return;
     }
 
@@ -114,72 +114,72 @@ void BST::BST_preorder(Node* node) {
 
 void BST::BST_preorder_wyswietl() {
    
-    BST_preorder(root);  
+    BST_preorder(root);  // <--- Wywo³anie metody BST_preorder zaczynaj¹c od korzenia drzewa 
     
     std::cout << std::endl;
 }
 
 void BST::BST_inorder(Node* node) {
 
-    if (node == nullptr) {
+    if (node == nullptr) {  // <--- Pêtla sprawdza czy node jest nullptr jeœli tak to funkcja koñczy dzia³anie dla tego wywo³ywania rekurencyjnego 
         return;
     }
 
-    BST_inorder(node->left);
+    BST_inorder(node->left);  // <--- Przetwarzane jest lewe poddrzewie
 
-    std::cout << node->data << " ";
+    std::cout << node->data << " ";  // <--- Przetwarzany jest korzeñ
 
-    BST_inorder(node->right);
+    BST_inorder(node->right);   // <--- Przetwarzane jest prawe prawe poddrzewie.
 
 }
 
 void BST::BST_inorder_wyswietl() {
     
-    BST_inorder(root);
+    BST_inorder(root);  // <--- Wywo³anie metody BST_inorder zaczynaj¹c od korzenia drzewa 
 
     std::cout << std::endl;
 }
 
 void BST::BST_postorder(Node* node) {
 
-    if (node == nullptr) {
+    if (node == nullptr) {  // <--- Pêtla sprawdza czy node jest nullptr jeœli tak to funkcja koñczy dzia³anie dla tego wywo³ywania rekurencyjnego 
         return;
     }
 
-    BST_postorder(node->left);
+    BST_postorder(node->left);  // <--- Przetwarzane jest lewe poddrzewie
 
-    BST_postorder(node->right);
+    BST_postorder(node->right);  // <--- Przetwarzane jest prawe prawe poddrzewie.
 
-    std::cout << node->data << " ";
+    std::cout << node->data << " ";  // <--- Przetwarzany jest korzeñ
 }
 
 void BST::BST_postorder_wyswietl() {
 
-    BST_postorder(root);
+    BST_postorder(root);  // <--- Wywo³anie metody BST_postorder zaczynaj¹c od korzenia drzewa 
 
     std::cout << std::endl;
 }
 
 void BST::BST_usun_cale_drzewo(Node* node) {
   
-    if (node == nullptr) {
+    if (node == nullptr) {  // <--- Pêtla sprawdza czy node jest nullptr jeœli tak to funkcja koñczy dzia³anie dla tego wywo³ywania rekurencyjnego
         return;
     }
 
-    BST_usun_cale_drzewo(node->left);
+    BST_usun_cale_drzewo(node->left);  // <--- Przetwarzane jest lewe poddrzewie
 
-    BST_usun_cale_drzewo(node->right);
+    BST_usun_cale_drzewo(node->right);   // <--- Przetwarzane jest prawe prawe poddrzewie.
 
-    std::cout << node->data << std::endl;
+    std::cout << node->data << std::endl;  // <--- Wyswietlanie wartosci bierz¹cegi wêz³a
     
-    delete node;
+    delete node;  // <--- Zwolnienie pamiêci zajmowanej przez bie¿¹cy wêze³
 }
 
 void BST::BST_usun_cale_drzewo_wyswietl() {
     
-    BST_usun_cale_drzewo(root);
+    BST_usun_cale_drzewo(root);  // <--- wywo³anie metody usun_cale_drzewo zaczynaj¹c od korzenia 
     
-    root = nullptr;
+    root = nullptr;  // <--- Ustawienie root na nullptr, aby oznaczyæ, ¿e drzewo jest teraz puste
 }
 
 void BST::BST_zapisz_do_pliku(const std::string& nazwa_pliku) {
@@ -188,7 +188,7 @@ void BST::BST_zapisz_do_pliku(const std::string& nazwa_pliku) {
         std::cout << "Nie mo¿na otworzyæ pliku do zapisu." << std::endl;
         return;
     }
-    BST_zapisz_inorder_do_pliku(root, plik);    // <--- Zapis drzewa
+    BST_zapisz_inorder_do_pliku(root, plik);  // <--- Zapis drzewa
     plik.close();    // <--- Zamyka plik
 }
 
