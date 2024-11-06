@@ -6,7 +6,7 @@ BST::BST() : root(nullptr) {}
 BST::~BST() {}
 
 void BST::BST_dodanie_elementu(int v) {
-    Node* newNode = new Node(v);
+    Node* newNode = new Node(v);   // <--- Tworzony jet dynamicznie nowy element.
 
     if (root == nullptr) {
         root = newNode;         // <--- Pêtla sprawdza czy drzewo jest puste jeœli jest to ustawia nowy element jako korzeñ..
@@ -16,7 +16,7 @@ void BST::BST_dodanie_elementu(int v) {
     Node* obecny_element = root; // <--- WskaŸnik jest ustawiwany na korzeñ
     Node* rodzic = nullptr; // <--- Rodzic jest u¿ywany do przechowywania wskaŸnika wêz³a nadrzêdnego 
 
-    while (obecny_element != nullptr) { // <--- Pêtla dzia³a do momentu a¿ dotrze do wêz³a w któym odpowiednie poddrzewie jest puste   Lewe albo Prawe
+    while (obecny_element != nullptr) { // <--- Pêtla dzia³a do momentu a¿ dotrze do wêz³a w któym odpowiednie poddrzewie jest puste Lewe albo Prawe
                                       
         rodzic = obecny_element; 
         if (v < obecny_element->data) {   // <--- Pêtla if przechodzi do lewej strony albo prawej w zale¿noœci od wartoœci elementu 
@@ -104,7 +104,7 @@ void BST::BST_preorder(Node* node) {
         return;
     }
 
-    std::cout << node->data << " "; // <--- Przetwarzany jest korzeñ
+    std::cout << node->data <<" "; // <--- Przetwarzany jest korzeñ
    
     BST_preorder(node->left);     // <--- Przetwarzane jest lewe poddrzewie
     

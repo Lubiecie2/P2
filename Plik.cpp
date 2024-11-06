@@ -9,7 +9,7 @@ void Pliki::Pliki_Wczytanie_z_pliku_tekstowego(BST& tree, const std::string& fil
     std::ifstream file(filename);   // <--- Otwarcie pliku testkowego do odczytu 
 
     if (!file) {                                                                         // <--- Pêtla sprawdza czy plik zosta³ poprawnie otwarty   
-        std::cerr << "Nie mozna otworzyc pliku tekstowego: " << filename << std::endl;          
+        std::cout << "Nie mozna otworzyc pliku tekstowego: " << filename << std::endl;          
         return;                                                                                 
     }
     while (file >> v) {                     // <--- Pêtla while odczytuje kolejne liczby z pliku
@@ -37,7 +37,7 @@ void Pliki::Pliki_Zapisywanie_do_pliki_binarnego(BST& tree, const std::string& f
     std::ofstream file(filename, std::ios::binary);   // <--- Otwarcie pliku binarnego do zapisu
     
     if (!file) {                                             // <--- Pêtla sprawdza czy plik zosta³ poprawnie otwarty  
-        std::cerr << "Nie mo¿na otworzyæ pliku do zapisu: " << filename << std::endl;
+        std::cout << "Nie mo¿na otworzyæ pliku do zapisu: " << filename << std::endl;
         return;
     }
     
@@ -53,7 +53,7 @@ void Pliki::Pliki_Wczytanie_z_pliku_binarnego(BST& tree, const std::string& file
 
     if (!file) {                                        // <--- Pêtla sprawdza czy plik zosta³ poprawnie otwarty 
 
-        std::cerr << "Nie mo¿na otworzyæ pliku do wczytania: " << filename << std::endl;  
+        std::cout << "Nie mo¿na otworzyæ pliku do wczytania: " << filename << std::endl;  
         return;
     }
 
