@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 
 // @struct Node
 // @brief Struktura reprezentuj¹ca wêze³ w drzewie poszukiwañ binarnych.
@@ -77,4 +78,13 @@ public:
 
     // @brief Usuwa ca³e drzewo i zwalnia przydzielon¹ pamiêæ.
     void BST_usun_cale_drzewo_wyswietl();
+
+    // @brief Zapisuje drzewo BST do pliku tekstowego.
+    // @param nazwa_pliku Nazwa pliku, do którego zostanie zapisane drzewo.
+    void BST_zapisz_do_pliku(const std::string& nazwa_pliku);
+
+    // @brief Zapisuje elementy drzewa w kolejnoœci inorder do pliku.
+    // @param node WskaŸnik na aktualny wêze³ drzewa.
+    // @param plik Referencja do obiektu std::ofstream, do którego zostan¹ zapisane elementy.
+    void BST_zapisz_inorder_do_pliku(Node* node, std::ofstream& plik);
 };
